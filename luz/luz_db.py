@@ -7,3 +7,6 @@ def connect_to_luz():
     metadata = sqlalchemy.MetaData()
     
     return engine, connection, metadata
+
+if __name__ == "__main__":
+    connect_to_luz()
