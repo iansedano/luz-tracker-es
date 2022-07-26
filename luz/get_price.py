@@ -31,10 +31,7 @@ def pprint_api_data(price_json) -> None:
 
 
 def get_data_from_api():
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36'
-    }
-    response = requests.get("https://api.preciodelaluz.org/v1/prices/all?zone=PCB")
+    response = requests.get("https://api.preciodelaluz.org/v1/prices/all?zone=PCB", stream=True)
     price_json = response.json()
     pprint_api_data(price_json)
 
