@@ -6,6 +6,12 @@ import requests
 
 from luz.mongo import get_prices_collection
 
+import socket
+import requests.packages.urllib3.util.connection as urllib3_cn
+
+# On my VPS IPv6 takes minutes for some reason...
+urllib3_cn.allowed_gai_family = lambda: socket.AF_INET # Force IPv4
+
 
 def get_timestamp(date, hour):
     day, month, year = date.split("-")
